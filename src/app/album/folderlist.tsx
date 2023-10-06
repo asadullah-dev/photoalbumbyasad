@@ -1,0 +1,34 @@
+import * as React from "react";
+
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { FolderType } from "./page";
+import Link from "next/link";
+
+const Folderlist = ({ folder }: { folder: FolderType }) => {
+  return (
+    <div>
+      <Card>
+        <CardHeader>
+          <CardTitle>{folder.name}</CardTitle>
+          <CardDescription>All your {folder.name} images</CardDescription>
+        </CardHeader>
+        <CardContent></CardContent>
+        <CardFooter className="flex justify-between">
+          <Button asChild>
+            <Link href={`/album/${folder.name}`}>View Album</Link>
+          </Button>
+        </CardFooter>
+      </Card>
+    </div>
+  );
+};
+
+export default Folderlist;
